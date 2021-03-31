@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+<div align="center">
+  <br>
+  <h1>Basic React ArcGIS App</h1>
+  <strong>🌎 Utilizing ArcGIS in React ⚛️ </strong>
+</div>
+<br>
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/jameseaster/basic-react-arcgis-app?style=plastic" alt="GitHub last commit">
+  <img src="https://img.shields.io/github/languages/code-size/jameseaster/basic-react-arcgis-app?style=plastic" alt="GitHub code size in bytes">
+  <img src="https://img.shields.io/github/commit-activity/m/jameseaster/basic-react-arcgis-app?style=plastic" alt="GitHub commit activity">
+  <img src="https://img.shields.io/badge/code_style-prettier-brightgreen.svg?style=plastic" alt="Code style prettier">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Basic React ArcGIS App provides a very simple start to utilizing the ArcGIS for JS API inside of Create React App. The generation of the map is held in a custom hook to separate the business logic. Only extra dependency is esri-loader, this is meant to act as an easy gateway into map development with React.
 
-## Available Scripts
+![app-screenshot](/public/basic-react-arcgis-app_screenshot.png)
 
-In the project directory, you can run:
+## Local development
 
-### `yarn start`
+In the project directory:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Scripts
 
-### `yarn test`
+- `npm start`: starts app, viewable at [http://localhost:3000](http://localhost:3000)
+- `npm build`: Builds the production app
+- `npm eject`: Ejects the app
+- `npm test`: Runs the tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Resources
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://reactjs.org/)
+- [Esri Loader](https://www.npmjs.com/package/esri-loader)
+- [ArcGIS for JS](https://developers.arcgis.com/javascript/latest/)
