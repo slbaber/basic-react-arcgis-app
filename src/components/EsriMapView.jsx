@@ -17,8 +17,8 @@ export default function EsriMapView() {
   // Map view returned from hook
   const view = useInitializeMap(mapRef);
 
-  // Logs the view's center coordinants
-  const logCenterCoordinants = () => {
+  // Logs the view's center coordinates
+  const logCenterCoordinates = () => {
     const currentCoords = {
       lat: view.center.latitude,
       long: view.center.longitude,
@@ -28,8 +28,8 @@ export default function EsriMapView() {
 
   return (
     <div className="map-container">
-      <button className="log-button" onClick={logCenterCoordinants}>
-        Log Current Center Coordinants
+      <button className="log-button" onClick={logCenterCoordinates}>
+        Log Current Center Coordinates
       </button>
       <div className="map-view" ref={mapRef} />
     </div>
