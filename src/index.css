@@ -17,10 +17,17 @@ code {
   text-align: center;
 }
 
+#coords {
+  color: white;
+  font-weight: bolder;
+  padding-bottom: 10px;
+}
+
 /* EsriMapView styling */
 .log-button {
   margin: 8px;
 }
+
 .map-view {
   height: 96vh;
 }

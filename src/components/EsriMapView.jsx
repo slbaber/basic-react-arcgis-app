@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
 import { useInitializeMap } from "../hooks/useIntializeMap";
+import Slider from "./Slider.jsx";
+// import { useCreateSlider } from "../hooks/useCreateSlider";
+// import { loadModules } from "esri-loader";
 
 /**
  * EsriMapView
@@ -15,22 +18,19 @@ export default function EsriMapView() {
   const mapRef = useRef(null);
 
   // Map view returned from hook
-  const view = useInitializeMap(mapRef);
+  const [view, map] = useInitializeMap(mapRef);
 
-  // Logs the view's center coordinates
-  const logCenterCoordinates = () => {
-    const currentCoords = {
-      lat: view.center.latitude,
-      long: view.center.longitude,
-    };
-    console.log(currentCoords);
+  const isCool = () => {
+    console.log("James, you are cool!");
   };
 
   return (
     <div className="map-container">
-      <button className="log-button" onClick={logCenterCoordinates}>
-        Log Current Center Coordinates
+      <button className="log-button" onClick={isCool}>
+        Tell James he is cool
       </button>
+      <div id="coords"></div>
+      <Slider view={view} map={map} />
       <div className="map-view" ref={mapRef} />
     </div>
   );

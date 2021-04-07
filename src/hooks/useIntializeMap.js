@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { loadModules } from "esri-loader";
 
 /**
@@ -9,41 +9,55 @@ import { loadModules } from "esri-loader";
 export function useInitializeMap(mapRef) {
   // Local State
   const [mapView, setMapView] = useState(null);
+  const [mapMap, setMap] = useState(null);
+
+  const view = useRef();
+  const map = useRef();
 
   // Load modules and create map
   useEffect(() => {
     // Declare the view here to also be used in the clean up
-    let view;
 
-    loadModules(["esri/views/MapView", "esri/Map"], {
+    loadModules(["esri/views/MapView", "esri/Map", "esri/core/watchUtils"], {
       css: true,
-    }).then(([MapView, Map]) => {
+    }).then(([MapView, Map, watchUtils]) => {
       // Create the Map
-      const map = new Map({
+      map.current = new Map({
         basemap: "topo-vector",
       });
 
       // Assign the new MapView to view
-      view = new MapView({
-        map: map,
+      view.current = new MapView({
+        map: map.current,
         container: mapRef.current,
-        zoom: 14,
-        center: [-104.8214, 38.8339],
+        zoom: 5,
+        center: [-85.0502, 33.125524],
       });
 
-      // Save the view to state to return it
-      setMapView(view);
+      watchUtils.whenTrue(view.current, "stationary", function () {
+        // Get the new center of the view only when view is stationary and update the coords div.
+        if (view.current.center) {
+          let info = `${view.current.center.latitude}, ${view.current.center.longitude}`;
+
+          document.getElementById("coords").innerHTML = `Center:  ${info}`;
+        }
+      });
+
+      // Save the view and map to state for return
+      setMapView(view.current);
+      setMap(map.current);
     });
 
     // Clean up map view
     return () => {
-      if (!!view) {
-        view.destroy();
-        view = null;
+      console.log("cleaning up");
+      if (!!view.current) {
+        view.current.destroy();
+        view.current = null;
       }
     };
   }, [mapRef]);
 
   // Return the view
-  return mapView;
+  return [mapView, mapMap];
 }
